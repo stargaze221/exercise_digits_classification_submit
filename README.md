@@ -38,10 +38,10 @@ The digits classification is formulated as a supervised learning problem. The ha
     > $python main.py test
 
     The classification error with the files: 'hyper_param.json' and 'Saved_CNN_Mdl.pt' is
-    <p> Valication error:  1.09%
+    <p> Valication error:  1.09% (It varies due to the random selection of the validation dataset.)
     </p>
 
-    <p> Test error:  1.32% 
+    <p> Test error:  1.24% 
     </p>
  
 
