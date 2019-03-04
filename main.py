@@ -78,4 +78,4 @@ if __name__ == "__main__":
             test()
 
         else:
-            train()
+            print('The command is not found. Try again with the other commands.')
