@@ -78,5 +78,5 @@ if __name__ == "__main__":
 
         elif arg1 == 'test':
             test()
-    else:
-        print('The command is not found. Try again with the other commands.')
+        else:
+            print('The command is not found. Try again with the other commands.')
