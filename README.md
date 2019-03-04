@@ -1,8 +1,9 @@
 ##  Handwritten Digits Classification.
 The digits classification is formulated as a supervised learning problem. The handwritten data (images and labels) are downloaded from [Yann LeCun's homepage](http://yann.lecun.com/exdb/mnist "yann.lecun.com"). A convolutional neural network (CNN) maps the images to probability distributions on the labels (0, 1,..., 9). The stochastic gradient descent method is employed to minimize the cross-entropy between the label and the probability distributions. A sampled based optimization tool ([Hyperopt](https://hyperopt.github.io/hyperopt/), a Bayesian optimizer) was employed for hyper-parameter tunning. Further details on the implementation are listed as follows:
 
-1. The stochastic gradient descent algorithm is implemented using Python3 and Pytorch. The list of apps which can be installed using pip is as follows:
-    <p>python3, wget, gzip, idx2numpy, numpy, pytorch, hyperopt</p>
+1. The stochastic gradient descent algorithm is implemented using Python3 and Pytorch. The list of required apps which can be installed using pip (or conda) is as follows:
+    <p>python3, wget, gzip, idx2numpy, numpy, pytorch, hyperopt, and other basic libraries
+     (I used virtual enviornment for Python 3.6 with Anaconda).</p>
 
 2. The structure of the CNN model is as:
     <p> (i). Multiple layers of CNN with each layer is consist of convolution with kernel size (5,5) with stride 1, batch normalization, and rectified linear unit.
@@ -13,7 +14,7 @@ The digits classification is formulated as a supervised learning problem. The ha
 3. The data for training is divided into training and validation data with a ratio of 75% vs. 25%.
 
 
-4. Despite the automated hyper-parameter tunning using Hyperopt, we need to choose a few hyper-parameter since it is not feasible to search the entire hyper-parameter space. I have selected the number of CNN layers, l2 regularization weight, and the number of epochs in the hyper-parameter optimization based on the following list of heuristics:
+4. Despite the automated hyper-parameter tunning using Hyperopt, we need to choose only few hyper-parameters since it is not feasible to search the entire hyper-parameter space. I have selected the number of CNN layers, l2 regularization weight, and the number of epochs in the hyper-parameter optimization based on the following list of heuristics:
     <p> a. What makes neural networks deep is having multiple layers. There are many theoretical efforts to show the deep-layered structure is useful. For example, [1] shows that each layer in a deep neural network (DNN) act as information bottleneck to decrease the effect of the nuisance in classification tasks. Also more layers increase its capability to approximate arbitrary functions (model complexity).  
     </p>
     <p> b. l2 regularization on the parameters is a well-known method to prevent overfitting; in turn, the model has a better generalization.
