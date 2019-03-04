@@ -41,7 +41,7 @@ The digits classification is formulated as a supervised learning problem. The ha
     <p> Valication error:  1.09% (It varies due to the random selection of the validation dataset.)
     </p>
 
-    <p> Test error:  1.24% 
+    <p> Test error:  1.32% 
     </p>
  
 
