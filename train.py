@@ -10,7 +10,7 @@ import json
 
 
 NB_DIGITS = 10 # Number of labels, i.e. 0, 1, 2, ... , 9.
-N_PIXELS = 28 # the hand-writing images are wth resolutions at (28 x 28).
+N_PIXELS = 28 # The hand-writing images are wth resolutions at (28 x 28).
 
 BATCHSIZE = 10 # Size of the minibatch for stochastic gradient descent (SGD) algorithm. 
 LEARNING_RATE = 0.001 # Step size for updating the paraemters in SGD for the Adam optimizer.

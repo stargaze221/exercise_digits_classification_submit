@@ -14,7 +14,7 @@ class ConvNetwork(nn.Module):
     '''
     def __init__(self, n_layers=3):
         '''
-        Initialize the c
+        Initialize the computation graph.
         '''
         super(ConvNetwork, self).__init__()
         self.size = (N_PIXELS, N_PIXELS)
