@@ -10,8 +10,10 @@ The digits classification is formulated as a supervised learning problem. The ha
     <p> (ii). Two linear layers and softmax maps the output of the multiple CNN layers in (i) to probability distributions on the labels.
     </p>
 
+3. The data for training is divided into training and validation data with a ratio of 75% vs. 25%.
 
-2. Despite the automated hyper-parameter tunning using Hyperopt, we need to choose a few hyper-parameter since it is not feasible to search the entire hyper-parameter space. I have selected the number of CNN layers, l2 regularization weight, and the number of epochs in the hyper-parameter optimization based on the following list of heuristics:
+
+4. Despite the automated hyper-parameter tunning using Hyperopt, we need to choose a few hyper-parameter since it is not feasible to search the entire hyper-parameter space. I have selected the number of CNN layers, l2 regularization weight, and the number of epochs in the hyper-parameter optimization based on the following list of heuristics:
     <p> a. What makes neural networks deep is having multiple layers. There are many theoretical efforts to show the deep-layered structure is useful. For example, [1] shows that each layer in a deep neural network (DNN) act as information bottleneck to decrease the effect of the nuisance in classification tasks. Also more layers increase its capability to approximate arbitrary functions (model complexity).  
     </p>
     <p> b. l2 regularization on the parameters is a well-known method to prevent overfitting; in turn, the model has a better generalization.
@@ -24,13 +26,13 @@ The digits classification is formulated as a supervised learning problem. The ha
 
     The hyper-parameter optimization took about 6 hours to run 100 iterations with Nvidia GeForce GTX 1060. The result of the optimization is saved in 'hyper_param.json'. The exploration in hyper-parameter space during the 100 iterations is shown in the charts located in the bottom.
 
-3. With determined hyper-parameters in 'hyper_param.json,' you can run the training with the command below.
+5. With determined hyper-parameters in 'hyper_param.json,' you can run the training with the command below.
 
     > $python main.py optimize classifier
 
     The determined parameter after the training is saved in 'Saved_CNN_Mdl.pt.' 
     
-4. Testing the trained model with the test dataset can be done with the command below.
+6. Testing the trained model with the test dataset can be done with the command below.
 
     > $python main.py test
 
@@ -40,10 +42,11 @@ The digits classification is formulated as a supervised learning problem. The ha
 
     <p> Test error:  1.32% 
     </p>
+ 
 
-5. Compared to the state of the art result in [2] which has only 0.21% test error, the implementation in this repository falls behind. In [2], drop-out is introduced as a way to improve generalization (a way to impose regularization). Furthermore, in [3], the equivalence of the deep neural network (DNN) with drop-out to the Gaussian process (GP). So the DNN with drop-out behaves similarly to the Bayesian model, GP. This suggests we might be able to improve the performance by employing the drop-out approach.
+7. Compared to the state of the art result in [2] which has only 0.21% test error, the implementation in this repository falls behind. In [2], drop-out is introduced as a way to improve generalization (a way to impose regularization). Furthermore, in [3], the equivalence of the deep neural network (DNN) with drop-out to the Gaussian process (GP). So the DNN with drop-out behaves similarly to the Bayesian model, GP. This suggests we might be able to improve the performance by employing the drop-out approach.
 
-6. However, there is another significant difference. The difference is on generating training data. As described in Section 6 in [2], the original training data are manipulated with scaling, rotation and cropping to create more training data sample. The manipulation seems to be crucial for the incredibly good performance with an error rate at 0.21%. We might be able to argue that those manipulations in [2] were done based on human's prior knowledge or domain knowledge such that the classification should be robust to scaling, rotation, and translation. 
+8. However, there is another significant difference. The difference is on generating training data. As described in Section 6 in [2], the original training data are manipulated with scaling, rotation and cropping to create more training data sample. The manipulation seems to be crucial for the incredibly good performance with an error rate at 0.21%. We might be able to argue that those manipulations in [2] were done based on human's prior knowledge or domain knowledge such that the classification should be robust to scaling, rotation, and translation. 
 
 
 
